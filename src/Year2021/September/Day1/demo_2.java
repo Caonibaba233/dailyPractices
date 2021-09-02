@@ -1,9 +1,6 @@
-package September_1;
+package Year2021.September.Day1;
 
 import org.junit.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 给你一个下标从 0 开始的字符串 s ，它的 偶数 下标处为小写英文字母，奇数 下标处为数字。

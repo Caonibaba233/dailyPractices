@@ -1,8 +1,6 @@
-package September_1;
+package Year2021.September.Day1;
 
 import org.junit.Test;
-
-import java.util.Scanner;
 
 /**
  * 斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。
