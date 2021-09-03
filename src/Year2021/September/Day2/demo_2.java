@@ -57,12 +57,6 @@ public class demo_2 {
                     if(i < roNum.length - 1){
                         if(roNum[i+1] == 'V' || roNum[i+1] == 'X'){
                             res -= 1;
-                            if(roNum[i+1] == 'V'){
-                                res += 5;
-                            }else if(roNum[i+1] == 'X'){
-                                res += 10;
-                            }
-                            i++;
                             break;
                         }
                     }
@@ -76,12 +70,6 @@ public class demo_2 {
                     if(i < roNum.length - 1){
                         if(roNum[i+1] == 'L' || roNum[i+1] == 'C'){
                             res -= 10;
-                            if(roNum[i+1] == 'L'){
-                                res += 50;
-                            }else if(roNum[i+1] == 'C'){
-                                res += 100;
-                            }
-                            i++;
                             break;
                         }
                     }
@@ -95,12 +83,6 @@ public class demo_2 {
                     if(i < roNum.length - 1){
                         if(roNum[i+1] == 'D' || roNum[i+1] == 'M'){
                             res -= 100;
-                            if(roNum[i+1] == 'D'){
-                                res += 500;
-                            }else if(roNum[i+1] == 'M'){
-                                res += 1000;
-                            }
-                            i++;
                             break;
                         }
                     }
