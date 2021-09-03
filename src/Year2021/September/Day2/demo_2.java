@@ -1,5 +1,6 @@
 package Year2021.September.Day2;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -31,7 +32,13 @@ import org.junit.Test;
 public class demo_2 {
 
     @Test
-    public void run(){}
+    public void run(){
+        Assert.assertEquals(3,romanToInt("III"));
+        Assert.assertEquals(4,romanToInt("IV"));
+        Assert.assertEquals(9,romanToInt("IX"));
+        Assert.assertEquals(58,romanToInt("LVIII"));
+        Assert.assertEquals(1994,romanToInt("MCMXCIV"));
+    }
 
     /**
      * 简单解法
@@ -40,39 +47,73 @@ public class demo_2 {
      * @return
      */
     public int romanToInt(String s) {
-        char[] roNum = s.toCharArray();
+        char[] roNum = s.toUpperCase().toCharArray();
 
-        //转成int
-        int[] aNum = new int[roNum.length];
-        for (int i = 0; i <roNum.length; i++) {
+        int res = 0;
+        for (int i = 0; i < roNum.length; i++) {
             switch (roNum[i]){
                 case 'I':
-                    aNum[i]=1;
+                    //V (5) 和 X (10)
+                    if(i < roNum.length - 1){
+                        if(roNum[i+1] == 'V' || roNum[i+1] == 'X'){
+                            res -= 1;
+                            if(roNum[i+1] == 'V'){
+                                res += 5;
+                            }else if(roNum[i+1] == 'X'){
+                                res += 10;
+                            }
+                            i++;
+                            break;
+                        }
+                    }
+                    res += 1;
                     break;
                 case 'V':
-                    aNum[i]=5;
+                    res += 5;
                     break;
                 case 'X':
-                    aNum[i]=10;
+                    //X 可以放在 L (50) 和 C (100)
+                    if(i < roNum.length - 1){
+                        if(roNum[i+1] == 'L' || roNum[i+1] == 'C'){
+                            res -= 10;
+                            if(roNum[i+1] == 'L'){
+                                res += 50;
+                            }else if(roNum[i+1] == 'C'){
+                                res += 100;
+                            }
+                            i++;
+                            break;
+                        }
+                    }
+                    res += 10;
                     break;
                 case 'L':
-                    aNum[i]=50;
+                    res += 50;
                     break;
                 case 'C':
-                    aNum[i]=100;
+                    //C 可以放在 D (500) 和 M (1000)
+                    if(i < roNum.length - 1){
+                        if(roNum[i+1] == 'D' || roNum[i+1] == 'M'){
+                            res -= 100;
+                            if(roNum[i+1] == 'D'){
+                                res += 500;
+                            }else if(roNum[i+1] == 'M'){
+                                res += 1000;
+                            }
+                            i++;
+                            break;
+                        }
+                    }
+                    res += 100;
                     break;
                 case 'D':
-                    aNum[i]=500;
+                    res += 500;
                     break;
                 case 'M':
-                    aNum[i]=1000;
+                    res += 1000;
                     break;
             }
         }
-
-        int res = aNum[0];
-        for (int i = 1; i < aNum.length; i++) {
-
-        }
+        return res;
     }
 }
