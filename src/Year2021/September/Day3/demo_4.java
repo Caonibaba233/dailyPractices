@@ -67,7 +67,7 @@ public class demo_4 {
         int delCount = 0;
         int hIndex = 0;
         int tIndex = nums.length - 1;
-        while(hIndex < tIndex){
+        while(hIndex != tIndex){
             if(nums[hIndex] == val){
                 nums[hIndex] += nums[tIndex];
                 nums[tIndex] = nums[hIndex] - nums[tIndex];
@@ -77,6 +77,10 @@ public class demo_4 {
             }else{
                 hIndex++;
             }
+        }
+
+        if(nums[hIndex] == val){
+            delCount++;
         }
 
         for (int i = 0; i < nums.length; i++) {
