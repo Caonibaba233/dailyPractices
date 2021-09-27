@@ -39,13 +39,13 @@ public class demo_2 {
 
     }
 
-    public int lengthOfLongestSubstring(String s) {
-        if (s.length() == 1 || s.length() == 0){
-            return s.length();
-        }else{
-            for (int i = 0; i < s.length(); i++) {
-                
-            }
-        }
-    }
+//    public int lengthOfLongestSubstring(String s) {
+//        if (s.length() == 1 || s.length() == 0){
+//            return s.length();
+//        }else{
+//            for (int i = 0; i < s.length(); i++) {
+//
+//            }
+//        }
+//    }
 }
